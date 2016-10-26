@@ -22,6 +22,9 @@
                     <div class="buttons">
                         <button id="btnLogin" class="btn btn-primary">Entrar</button>
                     </div>
+                    <div >
+                        <a href="<c:url value='/singup' />">Ainda não tem uma conta? Clique aqui para fazer uma!</a>
+                    </div>
                 </div>
             </form>
         </fieldset>

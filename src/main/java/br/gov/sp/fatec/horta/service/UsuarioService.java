@@ -18,7 +18,6 @@ public class UsuarioService {
         this(null);
     }
 
-    
     @Inject
     public UsuarioService(EntityManager em) {
         this.em = em;

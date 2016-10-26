@@ -27,6 +27,12 @@
         <div class="top">
             Horta em Casa
         </div>
+        <c:if test="${usuarioSession.id != null}">
+            Ola ${usuarioSession.email}! &nbsp;
+            <div class="bar">
+                <a href="<c:url value='/sair' />">Sair</a>
+            </div>
+        </c:if>
         <div class="content">
             <d:body />
         </div>

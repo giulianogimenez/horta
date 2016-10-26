@@ -41,6 +41,14 @@ public class LoginController {
         
     }
     
+    @Path("/sair")
+    @Get
+    public void sair() {
+        HttpSession session = request.getSession();
+        session.setAttribute("usuarioSession", null);
+        result.redirectTo(this).login();
+    }
+    
     @Path("/login")
     @Post
     public void autenticar(String email, String senha) {
