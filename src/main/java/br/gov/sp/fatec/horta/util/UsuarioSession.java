@@ -29,4 +29,9 @@ public class UsuarioSession implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public void kill() {
+        this.id = null;
+        this.email = null;
+    }
 }

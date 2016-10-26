@@ -44,6 +44,7 @@ public class LoginController {
     @Path("/sair")
     @Get
     public void sair() {
+        usuarioSession.kill();
         HttpSession session = request.getSession();
         session.setAttribute("usuarioSession", null);
         result.redirectTo(this).login();

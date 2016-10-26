@@ -22,14 +22,15 @@
         <script type="text/javascript" src="<c:url value='/ext/jquery-ui/jquery-ui-1.10.3.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/ext/validate/jquery.validate.min.js'/>"></script>
         <script type="text/javascript" src="<c:url value='/ext/gritter/jquery.gritter.min.js'/>"></script>
+        <d:head />
     </head>
     <body>
         <div class="top">
             Horta em Casa
         </div>
         <c:if test="${usuarioSession.id != null}">
-            Ola ${usuarioSession.email}! &nbsp;
             <div class="bar">
+                Ola ${usuarioSession.email}! &nbsp;
                 <a href="<c:url value='/sair' />">Sair</a>
             </div>
         </c:if>
