@@ -32,8 +32,6 @@ public class Projeto implements Serializable{
     @JoinColumn(columnDefinition = "usu_id", referencedColumnName = "usu_id")
     private Usuario usuario;
     
-    @OneToMany(mappedBy = "projeto", fetch = FetchType.LAZY)
-    private List<Planta> plantas;
 
     public Long getId() {
         return id;
@@ -57,14 +55,6 @@ public class Projeto implements Serializable{
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
-
-    public List<Planta> getPlantas() {
-        return plantas;
-    }
-
-    public void setPlantas(List<Planta> plantas) {
-        this.plantas = plantas;
     }
 }
 

@@ -30,5 +30,10 @@
         <div class="content">
             <d:body />
         </div>
+        <div>
+            <c:if test="${msg != null || msg != ''}">
+                ${msg}
+            </c:if>
+        </div>
     </body>
 </html>

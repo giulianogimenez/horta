@@ -45,6 +45,7 @@ public class UrlFilter implements Filter {
             response.sendRedirect("/horta/login");
             return;
         } 
+        chain.doFilter(request, response);
     }
 
     public void destroy() {
@@ -58,7 +59,8 @@ public class UrlFilter implements Filter {
                 || url.endsWith(".jpg")
                 || url.endsWith("/horta/")
                 || url.endsWith("/horta")
-                || url.endsWith("/login");
+                || url.endsWith("/login")
+                || url.endsWith("/singup");
     }
     
 }

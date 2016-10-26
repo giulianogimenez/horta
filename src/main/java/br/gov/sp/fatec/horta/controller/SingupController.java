@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.gov.sp.fatec.horta.model.Usuario;
 import br.gov.sp.fatec.horta.service.UsuarioService;
+import br.gov.sp.fatec.horta.util.Transacional;
 import br.gov.sp.fatec.horta.util.UsuarioSession;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -17,40 +18,40 @@ import javax.servlet.http.HttpSession;
  * @author giuliano.gimenez
  */
 @Controller
-public class LoginController {
+public class SingupController {
     private final Result result;
     private final UsuarioService usuarioService;
     private final UsuarioSession usuarioSession;
     private final HttpServletRequest request;
-    
-    public LoginController() {
+
+    public SingupController() {
         this(null, null, null, null);
     }
 
     @Inject
-    public LoginController(Result result, UsuarioService usuarioService, UsuarioSession usuarioSession, HttpServletRequest request) {
+    public SingupController(Result result, UsuarioService usuarioService, UsuarioSession usuarioSession, HttpServletRequest request) {
         this.result = result;
         this.usuarioService = usuarioService;
         this.usuarioSession = usuarioSession;
         this.request = request;
     }
     
-    @Path("/login")
+    @Path("/singup")
     @Get
-    public void login() {
+    public void singup() {
         
     }
     
-    @Path("/login")
+    @Path("/singup")
     @Post
-    public void autenticar(String email, String senha) {
-        Usuario u = usuarioService.autenticar(email, senha);
-        if(u.getId() == null) {
-            result.include("msg", "Login ou senha incorretos.");
-            result.redirectTo(this).login();
-        } else {
-            gravarAutenticacaoSession(u);
+    @Transacional
+    public void salvar(Usuario usuario) {
+        usuarioService.inserir(usuario);
+        if(usuario.getId() != null) {
+            gravarAutenticacaoSession(usuario);
             result.redirectTo(HomeController.class).home();
+        } else {
+            result.include("msg", "Houve um problema ao realizar seu cadastro.");
         }
     }
     
