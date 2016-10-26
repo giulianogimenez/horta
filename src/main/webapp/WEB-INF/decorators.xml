@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/layout">
+    <excludes>
+        <pattern>/index.jsp</pattern>
+    </excludes>
+    <decorator name="default" page="/WEB-INF/jsp/layout/layout.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>
