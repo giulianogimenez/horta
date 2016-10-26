@@ -1,6 +1,7 @@
 
 package br.gov.sp.fatec.horta.filter;
 
+import br.gov.sp.fatec.horta.util.UsuarioSession;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,6 +12,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,7 +30,21 @@ public class UrlFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String uri = request.getRequestURI();
 
-        chain.doFilter(request, response);
+        if (isPublicUrl(uri)) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        HttpSession session = request.getSession();
+        UsuarioSession usuarioSession = new UsuarioSession();
+        if (session.getAttribute("usuarioSession") != null) {
+            usuarioSession = (UsuarioSession) session.getAttribute("usuarioSession");
+        }
+
+        if (usuarioSession == null || usuarioSession.getId() == null) {
+            response.sendRedirect("/horta/login");
+            return;
+        } 
     }
 
     public void destroy() {
@@ -39,7 +55,9 @@ public class UrlFilter implements Filter {
         return url.endsWith(".css")
                 || url.endsWith(".js")
                 || url.endsWith(".png")
+                || url.endsWith(".jpg")
                 || url.endsWith("/horta/")
+                || url.endsWith("/horta")
                 || url.endsWith("/login");
     }
     
