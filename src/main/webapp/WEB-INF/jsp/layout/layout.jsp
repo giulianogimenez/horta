@@ -36,11 +36,11 @@
         </c:if>
         <div class="content">
             <d:body />
-        </div>
-        <div>
-            <c:if test="${msg != null || msg != ''}">
-                ${msg}
-            </c:if>
+            <div>
+                <c:if test="${msg != null || msg != ''}">
+                    ${msg}
+                </c:if>
+            </div>
         </div>
     </body>
 </html>

@@ -1,6 +1,9 @@
 $(function() {
     $("#btnNovo").click(function() {
-        alert('Ola');
-        window.location = '/projeto';
+        window.location = '/horta/projeto';
     });
 });
+
+function ir(id) {
+    window.location = '/horta/projeto/planta/' + id;
+}

@@ -24,8 +24,48 @@ public class ProjetoService {
         this.em = em;
     }
 
+    
+    public Projeto carregar(Long id) {
+        return em.find(Projeto.class, id);
+    }
+    
     public List<Projeto> listaProjetosPorUsuario(Long id) {
         return em.createQuery("SELECT p FROM Projeto p WHERE p.usuario.id = :usuario").setParameter("usuario", id).getResultList();
     }
     
+    public List<PlantaService> listarPlantasPorProjeto(Projeto projeto) {
+        return em.createQuery("SELECT pp.planta FROM PlantasProjeto pp WHERE pp.projeto = :projeto ORDER BY pp.planta.nome")
+                .setParameter("projeto", projeto)
+                .getResultList();
+    }
+    
+    public Boolean inserir(Projeto projeto) {
+        try {
+            em.persist(projeto);
+            return Boolean.TRUE;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return Boolean.FALSE;
+        }
+    }
+    
+    public Boolean atualizar(Projeto projeto) {
+        try {
+            em.merge(projeto);
+            return Boolean.TRUE;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return Boolean.FALSE;
+        }
+    }
+    
+    public Boolean deletar(Projeto projeto) {
+        try {
+            em.remove(projeto);
+            return Boolean.TRUE;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return Boolean.FALSE;
+        }
+    }
 }
