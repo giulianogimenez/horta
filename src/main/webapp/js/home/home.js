@@ -1,9 +1,9 @@
 $(function() {
     $("#btnNovo").click(function() {
-        window.location = '/horta/projeto';
+        window.location = '/horta/meuprojeto';
     });
 });
 
 function ir(id) {
-    window.location = '/horta/projeto/planta/' + id;
+    window.location = '/horta/meuprojeto/' + id;
 }

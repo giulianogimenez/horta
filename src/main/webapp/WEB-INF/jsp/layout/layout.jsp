@@ -25,15 +25,15 @@
         <d:head />
     </head>
     <body>
-        <div class="top">
-            Horta em Casa
-        </div>
         <c:if test="${usuarioSession.id != null}">
             <div class="bar">
                 Ola ${usuarioSession.email}! &nbsp;
                 <a href="<c:url value='/sair' />">Sair</a>
             </div>
         </c:if>
+        <div class="top">
+            Horta em Casa
+        </div>
         <div class="content">
             <d:body />
             <div>

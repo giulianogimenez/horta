@@ -17,7 +17,7 @@
         <c:if test="${empty plantas}" >
             Você ainda não possui nenhuma planta no seu projeto!<br>
         </c:if>
-        <button id="btnAdicionarPlanta" class="btn btn-primary">Adicionar Planta</button>
+        <button id="btnAdicionarPlanta" class="btn btn-primary" onclick="window.location = '/horta/meuprojeto/adicionarplanta/${projeto.id}'">Adicionar Planta</button>
         <c:forEach var="item" items="${plantas}">
             <div class="planta">
                 <h2>${item.nome}</h2>

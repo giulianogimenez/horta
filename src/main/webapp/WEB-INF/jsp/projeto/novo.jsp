@@ -15,7 +15,7 @@
     <body>
         <h1>Novo Projeto</h1>
         <fieldset>
-            <form id="form1" method="post" action="<c:url value='/' />projeto" >
+            <form id="form1" method="post" action="<c:url value='/' />meuprojeto" >
                 <input type="hidden" nam="_method" id="_method" value="POST" />
                 <div class="fields">
                     <div class="field">

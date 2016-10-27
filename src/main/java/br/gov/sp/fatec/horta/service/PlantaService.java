@@ -26,4 +26,8 @@ public class PlantaService {
     public List<Planta> listarPlantas() {
         return em.createQuery("SELECT p FROM Planta p").getResultList();
     }
+
+    public Planta carregar(Long id) {
+        return em.find(Planta.class, id);
+    }
 }
