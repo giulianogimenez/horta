@@ -57,7 +57,7 @@ public class SingupController {
     
     private void gravarAutenticacaoSession(Usuario usuario) {
         HttpSession session = request.getSession();
-        usuarioSession.setEmail(usuario.getEmail());
+        usuarioSession.setNome(usuario.getNome());
         usuarioSession.setId(usuario.getId());
         session.setAttribute("usuarioSession", usuarioSession);
     }

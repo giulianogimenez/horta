@@ -18,7 +18,8 @@
         <h1>Adicionar planta no projeto ${projeto.nome}</h1>
         <c:forEach items="${plantas}" var="item">
             <div class="planta">
-                <h2>${item.nome}</h2>
+                <img src="<c:url value='/img/content/' />${item.fotoPath}" />
+                ${item.nome}
                 <c:set var="tenho" value="false" />
                 <c:forEach items="${minhasPlantas}" var="m">
                     <c:if test="${m.id == item.id}">
@@ -35,21 +36,6 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
-                <p class="foto">
-                    <img src="<c:url value='/img/content/' />${item.fotoPath}" />
-                </p>
-                <p>
-                    <h3>Luminosidade</h3>
-                    ${item.iluminacao}
-                </p>
-                <p>
-                    <h3>Irrigação</h3>
-                    ${item.irrigacao}
-                </p>
-                <p>
-                    <h3>Dica</h3>
-                    ${item.dica}
-                </p>
             </div>
         </c:forEach>
     </body>

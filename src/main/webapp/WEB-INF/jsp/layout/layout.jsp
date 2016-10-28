@@ -27,7 +27,7 @@
     <body>
         <c:if test="${usuarioSession.id != null}">
             <div class="bar">
-                Ola ${usuarioSession.email}! &nbsp;
+                Olá ${usuarioSession.nome}! &nbsp;
                 <a href="<c:url value='/sair' />">Sair</a>
             </div>
         </c:if>

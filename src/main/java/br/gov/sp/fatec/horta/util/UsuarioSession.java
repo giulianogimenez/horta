@@ -12,7 +12,7 @@ import javax.inject.Named;
 @SessionScoped
 public class UsuarioSession implements Serializable {
     private Long id;
-    private String email;
+    private String nome;
 
     public Long getId() {
         return id;
@@ -22,16 +22,17 @@ public class UsuarioSession implements Serializable {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getNome() {
+        return nome;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
     
     public void kill() {
         this.id = null;
-        this.email = null;
+        this.nome = null;
     }
 }
