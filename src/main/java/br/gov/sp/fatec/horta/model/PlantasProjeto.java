@@ -22,11 +22,11 @@ public class PlantasProjeto implements Serializable{
     private Long id;
     
     @ManyToOne
-    @JoinColumn(columnDefinition = "prj_id", referencedColumnName = "prj_id")
+    @JoinColumn(name = "prj_id", referencedColumnName = "prj_id")
     private Projeto projeto;
     
     @ManyToOne
-    @JoinColumn(columnDefinition = "pln_id", referencedColumnName = "pln_id")
+    @JoinColumn(name = "pln_id", referencedColumnName = "pln_id")
     private Planta planta;
 
     public Long getId() {

@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 /**
@@ -25,12 +26,15 @@ public class Planta implements Serializable {
     @Column(name = "pln_fotopath")
     private String fotoPath;
     
+    @Lob
     @Column(name="pln_iluminacao")
     private String iluminacao;
     
+    @Lob
     @Column(name="pln_irrigacao")
     private String irrigacao;
     
+    @Lob
     @Column(name="pln_dica")
     private String dica;
         

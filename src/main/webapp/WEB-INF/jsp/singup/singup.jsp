@@ -18,6 +18,10 @@
                 <input type="hidden" name="_method" id="_method" value="POST" />
                 <div class="fields">
                     <div class="field">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" id="txtNome" name="usuario.nome" class="input-xxlarge">
+                    </div>
+                    <div class="field">
                         <label for="txtEmail">E-mail</label>
                         <input type="text" id="txtEmail" name="usuario.email" class="input-large">
                     </div>

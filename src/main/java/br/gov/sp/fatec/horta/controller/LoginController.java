@@ -54,7 +54,7 @@ public class LoginController {
     @Post
     public void autenticar(String email, String senha) {
         Usuario u = usuarioService.autenticar(email, senha);
-        if(u.getId() == null) {
+        if(u == null || u.getId() == null) {
             result.include("msg", "Login ou senha incorretos.");
             result.redirectTo(this).login();
         } else {

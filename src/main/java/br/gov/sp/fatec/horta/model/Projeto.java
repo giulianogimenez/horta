@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -29,7 +30,7 @@ public class Projeto implements Serializable{
     private String nome;
     
     @ManyToOne
-    @JoinColumn(columnDefinition = "usu_id", referencedColumnName = "usu_id")
+    @JoinColumn(name = "usu_id", referencedColumnName = "usu_id")
     private Usuario usuario;
     
 
