@@ -32,7 +32,7 @@
             </div>
         </c:if>
         <div class="top">
-            Horta em Casa
+            <img src='<c:url value="/img/logo_minhahorta.png" />' alt=""/>
         </div>
         <div class="content">
             <d:body />

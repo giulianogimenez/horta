@@ -31,6 +31,7 @@
                     </div>
                     <div class="buttons">
                         <button class="btn btn-primary">Inscrever</button>
+                        <button id="btnVoltar" type="button" onclick="window.location = '/horta'" class="btn btn-primary">Voltar</button>
                     </div>
                 </div>
             </form>

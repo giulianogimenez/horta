@@ -59,5 +59,18 @@ public class PlantaProjetoService {
             return null;
         }
     }
-    
+
+    public Boolean atualizar(PlantasProjeto plantasProjeto) {
+        try {
+            em.merge(plantasProjeto);
+            return Boolean.TRUE;
+        } catch(Exception e) {
+            e.printStackTrace();
+            return Boolean.FALSE;
+        }
+    }
+
+    public PlantasProjeto carregar(Long plantaProjetoId) {
+        return em.find(PlantasProjeto.class, plantaProjetoId);
+    }   
 }

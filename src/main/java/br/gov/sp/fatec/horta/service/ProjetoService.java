@@ -1,5 +1,6 @@
 package br.gov.sp.fatec.horta.service;
 
+import br.gov.sp.fatec.horta.model.PlantasProjeto;
 import br.gov.sp.fatec.horta.model.Projeto;
 import br.gov.sp.fatec.horta.model.Usuario;
 import java.util.List;
@@ -33,8 +34,8 @@ public class ProjetoService {
         return em.createQuery("SELECT p FROM Projeto p WHERE p.usuario.id = :usuario").setParameter("usuario", id).getResultList();
     }
     
-    public List<PlantaService> listarPlantasPorProjeto(Projeto projeto) {
-        return em.createQuery("SELECT pp.planta FROM PlantasProjeto pp WHERE pp.projeto = :projeto ORDER BY pp.planta.nome")
+    public List<PlantasProjeto> listarPlantasPorProjeto(Projeto projeto) {
+        return em.createQuery("SELECT pp FROM PlantasProjeto pp WHERE pp.projeto = :projeto ORDER BY pp.planta.nome")
                 .setParameter("projeto", projeto)
                 .getResultList();
     }

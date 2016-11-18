@@ -16,6 +16,7 @@
     </head>
     <body>
         <h1>Adicionar planta no projeto ${projeto.nome}</h1>
+        <button class="btn btn-primary" onclick="window.location='/horta/meuprojeto/${projeto.id}'" >Voltar</button>
         <c:forEach items="${plantas}" var="item">
             <div class="planta">
                 <img src="<c:url value='/img/content/' />${item.fotoPath}" />

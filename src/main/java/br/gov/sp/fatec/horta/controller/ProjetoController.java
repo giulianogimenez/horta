@@ -55,6 +55,16 @@ public class ProjetoController {
         result.include("plantas", projetoService.listarPlantasPorProjeto(projeto));
     }
     
+    @Path("/salvarObs")
+    @Post
+    @Transacional
+    public void salvarObs(Long ppId, String observacao) {
+        PlantasProjeto pp = plantaProjetoService.carregar(ppId);
+        pp.setObservacao(observacao);
+        plantaProjetoService.atualizar(pp);
+        result.redirectTo(this).planta(pp.getProjeto().getId());
+    }
+    
     @Path("/meuprojeto/adicionarplanta/{id}")
     @Get
     public void adicionar(Long id) {

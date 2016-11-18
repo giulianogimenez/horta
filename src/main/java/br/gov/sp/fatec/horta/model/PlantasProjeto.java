@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,6 +29,10 @@ public class PlantasProjeto implements Serializable{
     @ManyToOne
     @JoinColumn(name = "pln_id", referencedColumnName = "pln_id")
     private Planta planta;
+    
+    @Column(name="ppr_observacao")
+    @Lob
+    private String observacao;
 
     public Long getId() {
         return id;
@@ -51,5 +56,13 @@ public class PlantasProjeto implements Serializable{
 
     public void setPlanta(Planta planta) {
         this.planta = planta;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 }
